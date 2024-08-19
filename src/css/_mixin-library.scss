@@ -1,0 +1,119 @@
+// media query
+
+@mixin mobile {
+    @media ( max-width : 576px ){ @content; }
+}
+
+@mixin small {
+    @media ( min-width : 577px ){ @content; }
+}
+
+@mixin medium {
+    @media ( min-width : 768px ){ @content; }
+}
+
+@mixin large {
+    @media ( min-width : 992px ){ @content; }
+}
+
+@mixin extra-large {
+    @media ( min-width : 1200 ){ @content; }
+}
+
+@mixin extra-extra-large {
+    @media ( min-width : 1400px ){ @content; }
+}
+
+// container 
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// overlay
+@mixin overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+// grid
+@mixin grid($px){
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($px,1fr));
+    gap: 40px;
+}
+
+// box sizing
+@mixin box-sizing($box-model) {
+    -webkit-box-sizing: $box-model; // Safari <= 5
+       -moz-box-sizing: $box-model; // Firefox <= 19
+            box-sizing: $box-model;
+            // way to use in any page:
+            // *,
+            // *:after,
+            // *:before {
+            //     @include box-sizing(border-box);
+            // }
+}
+
+// centering
+@mixin center-felx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// centering absolute
+@mixin center-absolute{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+
+// circle
+@mixin circle($px){
+    border-radius: 50%;
+    width: $px;
+    height: $px;
+}
+
+// box shadow
+@mixin box-shadow($content){
+    box-shadow: $content;
+    -webkit-box-shadow : $content;
+    -moz-box-shadow : $content;
+    -o-box-shadow : $content;
+    -ms-box-shadow : $content;
+}
+
+// animation
+@mixin keyframe($name){
+    @-webkit-keyframes #{$name}{
+        @content;
+    }
+    @keyframes #{$name}{
+        @content;
+    }
+}
+
+
+// float - direction لو عاوز اغير اتجاه الصفحة بغير القيم  
+$float-left : left;
+$float-right : right;
+$text-left : left;
+$text-right : right;
+
+
+// list style
+ul, ol{
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
